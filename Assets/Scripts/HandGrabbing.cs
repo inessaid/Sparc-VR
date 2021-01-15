@@ -27,6 +27,7 @@ public class HandGrabbing : OVRGrabber
         if(!m_grabbedObj && pinchStrength > pinchThreshhold && m_grabCandidates.Count > 0)
         {
             GrabBegin();
+          
         }
 
         else if(m_grabbedObj && !(pinchStrength > pinchThreshhold))
