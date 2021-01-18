@@ -34,10 +34,10 @@ public class mirror : MonoBehaviour
     public void SetFakeParent(GameObject parent)
     {
         //Offset vector
-        _positionOffset = _thisChild.InverseTransformPoint(_thisChild.position) - _thisChild.InverseTransformPoint(parent.transform.position);
+        _positionOffset = _thisChild.InverseTransformPoint(_thisChild.position) - _thisChild.InverseTransformPoint(parent.transform.position) + new Vector3(0, 0, -0.345442f/2);
         //Offset rotation
         _rotationOffset = Quaternion.Inverse(parent.transform.rotation) * transform.rotation;
         //Our fake parent
-        FakeParent = parent;
+        //FakeParent = parent;
     }
 }
