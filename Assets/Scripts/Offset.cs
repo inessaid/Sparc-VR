@@ -24,19 +24,23 @@ public class Offset : MonoBehaviour
     void Update()
     {
         //Store new Position & rotation
-        newPosition = sObject.position;
-        newRotate = sObject.rotation;
+      //  newPosition = sObject.position;
+      //  newRotate = sObject.rotation;
 
         //Calculte difference in small object
-        posDiff = newPosition - oldPosition;
-        rotDiff = newRotate * Quaternion.Inverse(oldRotate);
+       // posDiff = newPosition - oldPosition;
+      //  rotDiff = newRotate * Quaternion.Inverse(oldRotate);
        
         //Apply difference to large object
-        lObject.position += posDiff*4;
-        lObject.rotation = oldRotate * rotDiff;
+      //  lObject.position += posDiff*4;
+       // lObject.rotation = oldRotate * rotDiff;
 
         //Set oldPos to current position
-        oldPosition = sObject.position;
+      //  oldPosition = sObject.position;
 
+
+        // new way
+        lObject.transform.localRotation = sObject.transform.localRotation;
+        lObject.transform.localPosition = sObject.transform.localPosition;
     }
 }
