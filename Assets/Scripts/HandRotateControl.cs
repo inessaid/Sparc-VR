@@ -16,7 +16,7 @@ public class HandRotateControl : MonoBehaviour
     void Update()
     {
       
-        transform.position = new Vector3 (rHand.transform.position.x, rHand.transform.position.y, rHand.transform.position.z) + offset;
+        //transform.position = new Vector3 (rHand.transform.position.x, rHand.transform.position.y, rHand.transform.position.z) + offset;
 
         transform.rotation = new Quaternion(rHand.transform.rotation.x, rHand.transform.rotation.y, rHand.transform.rotation.z, 1);
     }
