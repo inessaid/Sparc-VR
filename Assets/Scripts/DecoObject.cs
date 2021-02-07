@@ -26,8 +26,10 @@ public class DecoObject : MonoBehaviour
         {
             Debug.Log("Clone");
             GameObject newItem = Instantiate(Prefabs[Index], gameObject.transform.position, Quaternion.identity);
+            //newItem.transform.parent = gameObject.transform;
             newItem.transform.SetParent(gameObject.transform, false);
-
+            newItem.transform.position = gameObject.transform.position;
+          
         }
     }
 

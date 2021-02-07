@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EObj
   - Hand
+  - Indicator
   layers:
   - Default
   - TransparentFX

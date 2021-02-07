@@ -26,6 +26,8 @@ public class GridManager : MonoBehaviour
                 Spawnfile(i, j, Grid[i, j]);
             }
         }
+        gameObject.transform.localScale = new Vector3(0.16615f, 0.16615f, 0.16615f);
+        gameObject.transform.position = new Vector3(-0.063f, -0.516f, 0.139f);
     }
 
     void Spawnfile(int x, int y, float value)
@@ -33,6 +35,7 @@ public class GridManager : MonoBehaviour
         Vector3 pos = new Vector3(x - (horizontal - 0.5f), 0, y - (vertical - 0.3f));
         GameObject slot = Instantiate(indicator, pos, Quaternion.identity);
         slot.name = x.ToString() + "," + y.ToString();
+        slot.tag = "Indicator";
         slot.transform.SetParent(gameObject.transform);
 
     }

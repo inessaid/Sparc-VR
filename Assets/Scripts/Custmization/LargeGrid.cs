@@ -8,6 +8,7 @@ public class LargeGrid : MonoBehaviour
     public float[,] Grid;
     public int vertical, horizontal;
     private int colums, rows;
+    private GameObject prevObj;
 
     private void Start()
     {
@@ -23,8 +24,8 @@ public class LargeGrid : MonoBehaviour
             }
         }
 
-        gameObject.transform.localScale = new Vector3(5, 5, 5);
-        gameObject.transform.position += new Vector3(0, 0, 5);
+        
+        gameObject.transform.position = new Vector3(-2.085f, -0.553f, 1.176f);
     }
 
     public void SpawnSlot(int x, int y)
@@ -35,11 +36,38 @@ public class LargeGrid : MonoBehaviour
         slot.transform.SetParent(gameObject.transform);
     }
 
-    public void Spawnfile(string name, GameObject obj)
+    public GameObject Spawnfile(string name, GameObject obj)
     {
 
         var target = GameObject.Find(name);
-        GameObject Lobj = Instantiate(obj, target.transform.position, Quaternion.identity);
-        Lobj.transform.localScale = new Vector3(2f, 2f, 2f);
+
+        /*
+        if (prevObj)
+        {
+            Destroy(prevObj);
+        }
+        */
+
+        prevObj = Instantiate(obj, target.transform.position, Quaternion.identity);
+        prevObj.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);       
+        prevObj.transform.SetParent(target.transform);
+        Debug.Log("Spawn Large Obj");
+
+
+        return prevObj;
     }
+
+    
+    public GameObject GetCurrentObject()
+    {
+        return prevObj;
+    }
+
+    public Transform GetPosition(string name)
+    {
+        Transform position = GameObject.Find(name).transform;
+
+        return position;
+    }
+
 }

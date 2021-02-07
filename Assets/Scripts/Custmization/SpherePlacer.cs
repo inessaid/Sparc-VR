@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubePlacer : MonoBehaviour
+public class SpherePlacer : MonoBehaviour
 {
     private Grid grid;
     private Vector3 mOffset;
@@ -42,13 +42,22 @@ public class CubePlacer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        /*
+        if (other.transform.childCount > 0)
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color",Color.red);
+        */
+
         gameObject.transform.position = other.transform.position;
+        //gameObject.transform.SetParent(other.transform);
+
         Debug.Log("Pos:" + other.name);
         LargeGrid.Spawnfile("L" + other.name, objPrefab);
     }
 
     private void OnTriggerStay(Collider other)
     {
+        GameObject lObj = LargeGrid.GetCurrentObject();
+        lObj.transform.localRotation= gameObject.transform.localRotation;
         gameObject.transform.position = other.transform.position;
     }
 
