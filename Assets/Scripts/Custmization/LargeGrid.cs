@@ -49,7 +49,7 @@ public class LargeGrid : MonoBehaviour
         */
 
         prevObj = Instantiate(obj, target.transform.position, Quaternion.identity);
-        prevObj.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);       
+        prevObj.transform.localScale = new Vector3(4f, 4f, 4f);       
         prevObj.transform.SetParent(target.transform);
         Debug.Log("Spawn Large Obj");
 

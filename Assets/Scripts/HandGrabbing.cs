@@ -9,6 +9,7 @@ public class HandGrabbing : OVRGrabber
     public OVRHand other_hand;
     private float pinchThreshhold = 0.85f;
     public bool rotationOnly;
+    public bool isPinch;
 
     protected override void Start()
     {
@@ -21,6 +22,11 @@ public class HandGrabbing : OVRGrabber
     {
         base.Update();
         CheckIndexPinch();
+        if (m_hand.GetFingerPinchStrength(OVRHand.HandFinger.Index) > pinchThreshhold )
+        {
+            isPinch = true;
+        }
+        else isPinch = false;
     }
 
     void CheckIndexPinch()
@@ -28,14 +34,7 @@ public class HandGrabbing : OVRGrabber
         float pinchStrength = m_hand.GetFingerPinchStrength(OVRHand.HandFinger.Index);
         if(!m_grabbedObj && pinchStrength > pinchThreshhold && m_grabCandidates.Count > 0)
         {
-            /*
-            if (m_grabbedObj.gameObject.CompareTag("EObj"))
-            {
-               // GameObject go = GameObject.Instantiate(m_grabbedObj.gameObject);
-                //m_grabbedObj.gameObject = go.gameObject;
 
-            }
-            */
             GrabBegin();
 
             //Scale environment object
@@ -59,6 +58,7 @@ public class HandGrabbing : OVRGrabber
 
         else if(m_grabbedObj && !(pinchStrength > pinchThreshhold))
         {
+            isPinch = false;
             GrabEnd();
         }
 

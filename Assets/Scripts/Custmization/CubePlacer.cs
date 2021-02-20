@@ -28,7 +28,7 @@ public class CubePlacer : MonoBehaviour
             //child.transform.position = gameObject.transform.position - pOffset;
             //child.transform.localPosition = gameObject.transform.localPosition - pOffset;
             child.transform.localRotation = gameObject.transform.localRotation;
-            child.transform.localScale = gameObject.transform.localScale;
+            child.transform.localScale = gameObject.transform.localScale * 8f;
 
         }
     }
