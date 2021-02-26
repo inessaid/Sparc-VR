@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+
     public GameObject indicator;
     public float[,] Grid;
 
@@ -32,11 +33,12 @@ public class GridManager : MonoBehaviour
 
     void Spawnfile(int x, int y, float value)
     {
-        Vector3 pos = new Vector3(x - (horizontal - 0.5f), 0, y - (vertical - 0.3f));
+        Vector3 pos = new Vector3(x - (horizontal - 0.5f), 0.05f, y - (vertical - 0.1f));
         GameObject slot = Instantiate(indicator, pos, Quaternion.identity);
         slot.name = x.ToString() + "," + y.ToString();
         slot.tag = "Indicator";
         slot.transform.SetParent(gameObject.transform);
 
     }
+
 }

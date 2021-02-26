@@ -32,7 +32,7 @@ public class LargeGrid : MonoBehaviour
     {
         
         GameObject slot = new GameObject("L" + x.ToString() + "," + y.ToString());
-        slot.transform.position = new Vector3(x - (horizontal - 2.5f), 0, y - (vertical - 2.3f));
+        slot.transform.position = new Vector3(x - (horizontal - 2.5f), 0, y - (vertical - 3f));
         slot.transform.SetParent(gameObject.transform);
     }
 

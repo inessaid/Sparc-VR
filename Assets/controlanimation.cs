@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class controlanimation : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class controlanimation : MonoBehaviour
     public AnimationClip clip;
     public GameObject arm;
     float positionx, positiony, positionz;
+
+    public Slider timeSlider;
+    private int keyNum;
+
     public void Start()
     {
 
@@ -22,13 +27,35 @@ public class controlanimation : MonoBehaviour
 
         // create a curve to move the GameObject and assign to the clip
        
-       keys = new Keyframe[4]; keysy = new Keyframe[4]; keysz = new Keyframe[4];
-
+        keys = new Keyframe[10]; keysy = new Keyframe[10]; keysz = new Keyframe[10];
 
     }
 
-  
 
+    public void setkeySlider()
+    {
+        keyNum = (int)timeSlider.value;
+
+
+        setkeyClick(keyNum);
+
+    }
+
+    public void setkeyClick(int num)
+    {
+        positionx = arm.transform.localPosition.x;
+        Debug.LogError(positionx);
+        keys[num] = new Keyframe((float)num, positionx);
+
+        positiony = arm.transform.localPosition.y;
+        keysy[num] = new Keyframe((float)num, positiony);
+
+        positionz = arm.transform.localPosition.z;
+        keysz[num] = new Keyframe((float)num, positionz);
+        Debug.Log("KeySet " + keyNum);
+    }
+
+    /*
     public void setkey0()
     {
        
@@ -80,6 +107,9 @@ public class controlanimation : MonoBehaviour
         positionz = arm.transform.localPosition.z;
         keysz[3] = new Keyframe(3.0f, positionz);
     }
+    */
+
+
     public void play()
     {
        

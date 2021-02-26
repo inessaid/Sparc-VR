@@ -34,7 +34,7 @@ public class HandGrabbing : OVRGrabber
         float pinchStrength = m_hand.GetFingerPinchStrength(OVRHand.HandFinger.Index);
         if(!m_grabbedObj && pinchStrength > pinchThreshhold && m_grabCandidates.Count > 0)
         {
-
+            Debug.Log("Pinched Detected");
             GrabBegin();
 
             //Scale environment object
