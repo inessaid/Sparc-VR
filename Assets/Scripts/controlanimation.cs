@@ -22,7 +22,7 @@ public class controlanimation : MonoBehaviour
     {
 
         // create a new AnimationClip
-        clip = new AnimationClip();
+        //clip = new AnimationClip();
         clip.legacy = true;
 
         // create a curve to move the GameObject and assign to the clip
@@ -53,6 +53,11 @@ public class controlanimation : MonoBehaviour
         positionz = arm.transform.localPosition.z;
         keysz[num] = new Keyframe((float)num, positionz);
         Debug.Log("KeySet " + keyNum);
+    }
+
+    public void setJoint(string name)
+    {
+      
     }
 
     /*
@@ -124,5 +129,10 @@ public class controlanimation : MonoBehaviour
 
         anim.AddClip(clip, clip.name);
         anim.Play(clip.name);
+    }
+
+    public void Stop()
+    {
+        Debug.Log("TODO: Stop Animation");
     }
 }
