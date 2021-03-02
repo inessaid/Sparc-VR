@@ -12,13 +12,13 @@ public class DisableWParent : MonoBehaviour
             Debug.Log("Null Parent");
         }
 
-        if (parent.activeSelf == false)
+        if (parent.activeSelf == true)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(true);
         }
 
 
         else
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
     }
 }

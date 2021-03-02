@@ -27,7 +27,7 @@ public class controlanimation : MonoBehaviour
 
         // create a curve to move the GameObject and assign to the clip
        
-        keys = new Keyframe[10]; keysy = new Keyframe[10]; keysz = new Keyframe[10];
+        keys = new Keyframe[24]; keysy = new Keyframe[24]; keysz = new Keyframe[24];
 
     }
 
@@ -44,7 +44,7 @@ public class controlanimation : MonoBehaviour
     public void setkeyClick(int num)
     {
         positionx = arm.transform.localPosition.x;
-        Debug.LogError(positionx);
+        //Debug.LogError(positionx);
         keys[num] = new Keyframe((float)num, positionx);
 
         positiony = arm.transform.localPosition.y;
