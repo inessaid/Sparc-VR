@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
-    bool isOn;
+    public bool isOn;
     public GameObject Canvas;
+    public Sprite defaultImg, hoverImg, hitImage;
+
+    SpriteRenderer sr;
+
     void Start()
     {
-        
+        sr =  gameObject.GetComponent<SpriteRenderer>();
+        sr.sprite = defaultImg;
     }
 
     // Update is called once per frame
@@ -20,10 +26,20 @@ public class Buttons : MonoBehaviour
             Canvas.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        isOn = !isOn;
 
+   public void SetHoverImg()
+    {
+        sr.sprite = hoverImg;
     }
-  
+
+    public void SetHitImg()
+    {
+        sr.sprite = hitImage;
+    }
+
+    public void SetDefaultImg()
+    {
+        sr.sprite = defaultImg;
+    }
+
 }
